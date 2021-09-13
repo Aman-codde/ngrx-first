@@ -26,6 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
+# Ngrx setup 
 
 # Step 1
 add semantics
@@ -41,5 +42,11 @@ ng generate store
 ## Command
 ```
 ng generate store AppState --root --module app.module.ts --state-path store --state-interface AppState
+```
+# Step 3
+add ngrx dependencies
 
+## Command
+```
+npm install @ngrx/{store,effects,entity,store-devtools} --save
 ```
