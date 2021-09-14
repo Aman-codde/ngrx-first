@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { loadUsers } from './store/actions/user/user.actions';
+import { Observable } from 'rxjs';
+import { User } from './models/user';
+import { AppState } from './store';
+import { loadUsers, loadUsersSuccess } from './store/actions/user/user.actions';
+import { userUsersSelector } from './store/selectors/user/user.selectors';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +13,11 @@ import { loadUsers } from './store/actions/user/user.actions';
 })
 export class AppComponent {
   title = 'ngrx-angular1';
+  users$: Observable<User[]> | undefined;
 
-  constructor( private store: Store) {
-    this.store.dispatch(loadUsers())
+  constructor( private store: Store<AppState>) {
+    // this.store.dispatch(loadUsersSuccess({data: [{id: 3, name: 'Minni'}]}))
+    this.store.dispatch(loadUsers());
+    this.store.select(userUsersSelector)
   }
 }
