@@ -6,7 +6,7 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class UsersService {
-  baseUrl: string = 'https://jsonplaceholder.typicode.com/users';
+  baseUrl: string = 'https://jsonplaceholder.typicode.com/';
   constructor(private http: HttpClient) { }
 
   getAllUsers() {
