@@ -1,0 +1,9 @@
+<p>users-list works!</p>
+
+<!--
+    {{users$ | async | json}}
+-->
+
+<li *ngFor = "let user of users$ | async">
+    {{user.name}}
+</li>

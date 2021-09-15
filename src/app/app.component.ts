@@ -13,11 +13,7 @@ import { userUsersSelector } from './store/selectors/user/user.selectors';
 })
 export class AppComponent {
   title = 'ngrx-angular1';
-  users$: Observable<User[]> | undefined;
 
-  constructor( private store: Store<AppState>) {
-    // this.store.dispatch(loadUsersSuccess({data: [{id: 3, name: 'Minni'}]}))
-    this.store.dispatch(loadUsers());
-    this.store.select(userUsersSelector)
-  }
+  constructor() 
+  { }
 }

@@ -11,11 +11,16 @@ import * as fromUser from './store/reducers/user/user.reducer';
 import * as fromPost from './store/reducers/post/post.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './store/effects/user/user.effects';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { PostEffects } from './store/effects/post/post.effects';
+import { PostsListComponent } from './components/posts-list/posts-list.component';
+import { UsersListComponent } from './components/users-list/users-list.component'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PostsListComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,7 @@ import {HttpClientModule} from '@angular/common/http'
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreModule.forFeature(fromUser.userFeatureKey, fromUser.reducer),
     StoreModule.forFeature(fromPost.postFeatureKey, fromPost.reducer),
-    EffectsModule.forRoot([UserEffects])
+    EffectsModule.forRoot([UserEffects, PostEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

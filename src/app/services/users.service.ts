@@ -1,15 +1,15 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-  baseUrl: string = 'https://jsonplaceholder.typicode.com/';
-  constructor(private http: HttpClient) { }
+  
+  constructor(private api: ApiService) { }
 
   getAllUsers() {
-    return this.http.get<User[]>(this.baseUrl + 'users');
+    return this.api.get<User[]>('users');
   }
 }
